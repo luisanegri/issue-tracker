@@ -7,11 +7,9 @@
         <div class="panel-body">
             <div class="issue"></div>
             <h3>{{ issue.title }}</h3>
-            <p class="issue_description">Description:{{ issue_description }}</p>
+            <p class="issue_description">Description: {{ issue.description }}</p>
             <p>Date: {{ issue.date_created }}</p>
             <p>User: {{ issue.user }}</p>
-            
-
         </div>
     </div>
     {% endfor %}
