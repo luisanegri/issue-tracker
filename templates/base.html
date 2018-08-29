@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md navbar navbar-dark bg-primary">
+<nav class="navbar navbar-expand-md navbar navbar-dark bg-custom">
       <a class="navbar-brand cb-brand" href="#">Issue Tracker</a>
       
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -21,14 +21,14 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav ml-auto">
             {% if user.is_authenticated %}
-                <li><a href="#">My Issues</a></li>
-                <li><a href="#">Add Issues</a></li>
-                <li><a href="#">Charts</a></li>
-                <li><a href="#">Cart</a></li>
-                <li><a href="{% url 'logout' %}">Log Out</a></li>
+                <li class="nav-list"><a class="nav-link" href="#">My Issues</a></li>
+                <li class="nav-list"><a class="nav-link"href="#">Add Issues</a></li>
+                <li class="nav-list"><a class="nav-link"href="#">Charts</a></li>
+                <li class="nav-list"><a class="nav-link"href="#">Cart</a></li>
+                <li class="nav-list"><a class="nav-link"href="{% url 'logout' %}">Log Out</a></li>
             {%  else %}
-                <li><a href="{% url 'register' %}">Register</a></li>
-                <li><a href="{% url 'login' %}">Log In</a></li>
+                <li class="nav-list"><a class="nav-link"href="{% url 'register' %}">Register</a></li>
+                <li class="nav-list"><a class="nav-link"href="{% url 'login' %}">Log In</a></li>
             {% endif %}
         </ul>
       </div>  

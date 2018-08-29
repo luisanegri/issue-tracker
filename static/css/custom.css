@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700');
+
 body {
-    font-family: Arial;
-    padding-top: 50px;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: .9rem !important;
 }
 
 footer {
@@ -17,4 +19,19 @@ footer {
 
 .accountform {
     padding-top: 20px;
+}
+
+/*/ Navigation Bar /*/
+
+.bg-custom {
+    background-color: #4E5CE4;
+}
+
+.nav-list {
+    padding-right: 10px;
+    color: white;
+}
+
+.nav-link {
+    color: #ffffff;
 }
