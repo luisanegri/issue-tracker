@@ -1,16 +1,35 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="row">
+    <div class="col-sm-12">
+<div class="list-group w-50" id="detail-panel">
+  <button type="button" class="list-group-item list-group-item-action active" id="issue-details-bg-custom">
+    Issue Details
+  </button>
+  <button type="button" class="list-group-item list-group-item-action">Issue name: {{ issue.title }}</button>
+  <button type="button" class="list-group-item list-group-item-action">Label: </button>
+  <button type="button" class="list-group-item list-group-item-action">Description: {{ issue.description }}</button>
+  <button type="button" class="list-group-item list-group-item-action">Created by: {{ issue.user }}</button>
+  <button type="button" class="list-group-item list-group-item-action">Date created: {{ issue.date_created }}</button>
+  <button type="button" class="list-group-item list-group-item-action">Status: </button>
 
-    <p>Issue name: {{ issue.title }}</p>
-    <p>Description: {{ issue.description }}</p>
-    <p>Created by: {{ issue.user }}</p>
-    <p>Date created: {{ issue.date_created }}</p>
+  <a href="#" class="list-group-item list-group-item-action active w-50" id="upvote-btn">Upvote</a> 
+  <a href="#" class="list-group-item list-group-item-action active w-50" id="comment-btn">Comment</a>
 
-    
-<div class="comments-panel">
-    
 </div>
 
+  
+</div>
+</div>   
+</div> 
+
+
+<div class="row flex-row">  
+
+<div class="comments-panel">
+ 
+</div>
+</div> 
 
 {% endblock %}
