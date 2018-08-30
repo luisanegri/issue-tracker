@@ -12,13 +12,17 @@
 <body>
 
 <nav class="navbar navbar-expand-md navbar navbar-dark bg-custom">
-      <a class="navbar-brand cb-brand" href="#">Issue Tracker</a>
+    {% if user.is_authenticated %}
+      <a class="navbar-brand cb-brand" href="{% url 'issues' %}">Issue Tracker</a>
       
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
       
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    {%  else %}
+    <a class="navbar-brand cb-brand" href="#">Issue Tracker</a>
+    {% endif %}
         <ul class="navbar-nav ml-auto">
             {% if user.is_authenticated %}
                 <li class="nav-list"><a class="nav-link" href="#">My Issues</a></li>
