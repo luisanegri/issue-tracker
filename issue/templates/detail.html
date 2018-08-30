@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <p>Issue name: {{ issue.title }}</p>
+    <p>Description: {{ issue.description }}</p>
+    <p>Created by: {{ issue.user }}</p>
+    <p>Date created: {{ issue.date_created }}</p>
+
+    
+<div class="comments-panel">
+    
+</div>
+
+
+{% endblock %}
