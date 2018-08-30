@@ -66,3 +66,57 @@ footer {
 .btn-read-more:hover {
     color: #ffffff;
 }
+
+/*/ Detail.html /*/
+
+.comments-panel {
+    position: absolute;
+    width: 500px;
+    height: 170px;
+    background: #F7F7F7;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 30px;
+}
+
+#issue-details-bg-custom {
+    background-color: #F7F7F7;
+    border-color: #C8C8C8;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    font-size: .9rem;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+#detail-panel {
+    margin-top: 30px;
+    border-radius: 0;
+}
+
+#upvote-btn {
+    text-align: center;
+    background-color: #2C3DDB;
+    border-color: #2C3DDB;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    font-size: .9rem;
+}
+
+#comment-btn {    
+    text-align: center;
+    background-color: #2C3DDB;
+    border-color: #2C3DDB;
+    border-radius: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    font-size: .9rem;
+}
