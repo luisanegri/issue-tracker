@@ -21,7 +21,7 @@
                 <li class="list-group-item">Date created: {{ issue.date_created }}</li>
                 <li class="list-group-item">Created by: {{ issue.user }}</li>
         </div>
-      <a href="#" class="btn w-25" id="btn-read-more">Read more</a>
+      <a href="{% url 'get_detail' issue.id %}" class="btn w-25" id="btn-read-more">Read more</a>
     </div>
     </div>
 </div>
