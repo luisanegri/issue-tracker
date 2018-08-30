@@ -1,17 +1,33 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="row row-flex">
+
+<h1 class="page-title">All Issues</h1>
+
     {% for issue in issues %}
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
-        <div class="panel-body">
-            <div class="issue"></div>
-            <h3>{{ issue.title }}</h3>
-            <p class="issue_description">Description: {{ issue.description }}</p>
-            <p>Date: {{ issue.date_created }}</p>
-            <p>User: {{ issue.user }}</p>
+<div class="accordion issue-card" id="accordionExample">
+    <div class="card" style="width: 35rem;">    
+    <div class="card-header" id="headingOne{{ forloop.counter }}">
+        <h5 class="mb-0">
+                <button class="btn btn-link" id="issue-title" type="button" data-toggle="collapse" data-target="#collapseOne{{ forloop.counter }}" aria-expanded="false" aria-controls="collapseOne{{ forloop.counter }}">
+                {{ issue.title }}
+                </button>
+            </h5>
         </div>
+    <div id="collapseOne{{ forloop.counter }}" class="collapse " aria-labelledby="headingOne{{ forloop.counter }}" data-parent="#accordionExample">
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Description: {{ issue.description }}</li>
+                <li class="list-group-item">Date created: {{ issue.date_created }}</li>
+                <li class="list-group-item">Created by: {{ issue.user }}</li>
+        </div>
+      <a href="#" class="btn w-25" id="btn-read-more">Read more</a>
     </div>
-    {% endfor %}
+    </div>
 </div>
+    {% endfor %}
+       
+
 {% endblock %}
+
+
