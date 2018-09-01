@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from accounts import urls as urls_accounts
 from issue import urls as urls_issues
+from cart import urls as urls_cart
 from issue.views import all_issues
 from django.views import static
 
@@ -25,4 +26,5 @@ urlpatterns = [
     url(r'^$', all_issues, name='index'),
     url(r'^accounts/', include(urls_accounts)),
     url(r'^issues/', include(urls_issues)),
+    url(r'^cart/', include(urls_cart)),
 ]
