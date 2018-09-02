@@ -1,40 +1,81 @@
 {% extends 'base.html' %}
 {% load bootstrap_tags %}
-
 {% block content %}
 
-<div class="row row-flex">
-    {% for item in cart_items %}
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-display">
-        <div class="product"></div>
-        <div class="caption">
-            <h3>{{ item.issue.name }}</h3>
-            <p class="product-description"> {{ item.issue.description }}</p>
-            <p>{{ item.issue.price }}</p>
-            <p>
-                <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label for="exampleInputAmount" class="sr-only">New Qty</label>
-                        <div class="input-group">
-                            <div class="input-group-addon">Qty</div>
-                            <input name="quantity" type="number" min="0" max="99" class="form-control">
-                            <div class="input-group-addon">{{ item.quantity }}</div>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
-                </form>
-            </p>
-        </div>
+<section id="cart-page">
+<header class="cart-header">
+    <div class="row">
+        <i class="fas fa-shopping-cart cart-icon"></i>
     </div>
-    {% endfor %}
-</div>
-<div class="row">
-    <p>Total</p>
-    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
-    <a href="#" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
-</div>
-
+    <div class="row">
+        <h2 class="cart-title">Your shopping cart</h2>
+    </div>
+</header>
+<div class="card" id="cart-card">
+    {% for item in cart_items %}
+    <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
+        {% csrf_token %}
+        
+            <table class="table table-hover shopping-cart-wrap">
+                <thead class="text-muted">
+                    <tr>
+                      <th scope="col">Product</th>
+                      <th scope="col" width="120">Quantity</th>
+                      <th scope="col" width="120">Price</th>
+                      <th scope="col" width="200" class="text-right last">Action</th>
+                    </tr>
+                </thead>
+            <tbody>
+        
+        
+        <tr>
+        	<td>
+                <div class="product-wrap">
+                	<div class="product-list">
+                		<h6 class="title">{{ item.issue.title }}</h6>
+                		<dl class="param param-inline">
+                		  <dt>Description: </dt>
+                		  <dd>{{ item.issue.description }}</dd>
+                		</dl>
+                		<dl class="param param-inline">
+                		  <dt>Posted by: </dt>
+                		  <dd>{{ item.issue.created_by }}</dd>
+                		</dl>
+                	</div>
+                </div> 
+        	</td>
+        	<td> 
+        		<div class="form-group">
+                <label for="exampleInputAmount" class="sr-only">New Qty</label>
+                    <div class="input-group">
+                        <input name="quantity" type="number" min="0" max="99" class="form-control">
+                    </div>
+                    <div class="input-group" >
+                        <button type="submit" class="btn btn-add btn-mobile" style="display: none">Add</button>
+                    </div>
+                </div>
+        	</td>
+        	<td> 
+        		<div class="price-wrap"> 
+        			<var class="price">{{ item.issue.price }}</var> 
+        			<small class="text-muted">(EUR0.02 each)</small> 
+        		</div> <!-- price-wrap .// -->
+        	</td>
+        	
+        	<td class="text-right last"> 
+        		<button type="submit" class="btn btn-add">Add</button>
+        		<a href="#" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
+    	    </td>
+        </tr>
+        </tbody>
+        </table>
+    </form>
+{% endfor %}
+</div> <!-- card.// -->
+<div class="row text-muted" id="total-checkout">
+    <p class="total">Total:</p>
+    <p class="total-price"><i class="fas fa-euro-sign"></i>{{ total }}</p>
+</section>
 
 
 {% endblock %}
