@@ -31,7 +31,7 @@ footer {
 /*/ Navigation Bar /*/
 
 .bg-custom {
-    background-color: #4E5CE4;
+    background-color: #161A3F;
 }
 
 .nav-list {
@@ -69,6 +69,11 @@ footer {
 
 /*/ Detail.html /*/
 
+
+.cart-page {
+    background-color: red;
+}
+
 .comments-panel {
     position: absolute;
     width: 500px;
@@ -94,18 +99,6 @@ footer {
     border-radius: 0;
 }
 
-#upvote-btn {
-    text-align: center;
-    background-color: #2C3DDB;
-    border-color: #2C3DDB;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    font-size: .9rem;
-}
 
 #comment-btn {    
     text-align: center;
@@ -114,9 +107,129 @@ footer {
     border-radius: 0;
     letter-spacing: 1px;
     text-transform: uppercase;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5px;
     font-size: .9rem;
+    margin-top: 10px;
+    width: 120px;
+}
+
+#upvote-btn {
+    text-align: center;
+    background-color: #2C3DDB;
+    border-color: #2C3DDB;
+    border-radius: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: .9rem;
+    color: #fff;
+}
+
+#upvote {
+    width: 38%;
+    margin-top: 10px;
+}
+
+#comments {
+    width: 38%;
+    margin-top: 10px;
+}
+
+
+
+
+/*/ cart.html /*/
+
+
+.cart-header {
+    margin-top: 50px;
+    background: #DEE1FA;
+    padding-bottom: 38px;
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 3.2px 3.8px 7px 0 rgba(0,0,0,0.2);
+}
+
+.cart-icon {
+    font-size: 5rem;
+    margin: 30px auto 30px auto;
+    color: #3943A6;
+}
+
+.cart-title {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+
+#cart-card {
+    margin-top: 50px;;
+}
+
+.param {
+    margin-bottom: 7px;
+    line-height: 1.4;
+    font-size: .9rem;
+}
+.param-inline dt {
+    display: inline-block;
+}
+.param dt {
+    margin: 0;
+    margin-right: 7px;
+    font-weight: 600;
+}
+.param-inline dd {
+    vertical-align: baseline;
+    display: inline-block;
+}
+
+.param dd {
+    margin: 0;
+    vertical-align: baseline;
+} 
+
+.shopping-cart-wrap .price {
+    color: #007bff;
+    font-size: .9rem;
+    font-weight: bold;
+    margin-right: 5px;
+    display: block;
+}
+
+var {
+    font-style: normal;
+}
+
+#total-checkout {
+    float: right;
+    margin: 12px 5px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.total-price {
+    margin-right: 2px;
+}
+
+.total {
+    margin-right: 10px;
+}
+
+.btn-add {
+    background-color: #3943A6;
+    color: #fff;
+}
+
+@media (max-width: 767px) {
+    .cart-header {
+        width: 82%;
+    }
+    .last {
+        display: none;
+    }
+    .btn-mobile {
+        display: block;
+    }
 }
