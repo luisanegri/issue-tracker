@@ -28,7 +28,7 @@
                 <li class="nav-list"><a class="nav-link" href="#">My Issues</a></li>
                 <li class="nav-list"><a class="nav-link"href="#">Add Issues</a></li>
                 <li class="nav-list"><a class="nav-link"href="#">Charts</a></li>
-                <li class="nav-list"><a class="nav-link"href="#">Cart</a></li>
+                <li class="nav-list"><a class="nav-link"href="{% url 'view_cart' %}">Cart</a></li>
                 <li class="nav-list"><a class="nav-link"href="{% url 'logout' %}">Log Out</a></li>
             {%  else %}
                 <li class="nav-list"><a class="nav-link"href="{% url 'register' %}">Register</a></li>
