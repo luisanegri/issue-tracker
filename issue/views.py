@@ -11,6 +11,6 @@ def get_detail(request, pk):
     # Get specific issue
     issue = get_object_or_404(Issue, pk=pk)
     # Filters comments in the database of specific issue
-    comment = Comment.objects.filter(issue=pk)
-    return render(request, 'detail.html', {'issue': issue}, {'comment': comment})
+    comments = Comment.objects.filter(issue=pk)
+    return render(request, 'detail.html', {'issue': issue}, {'comments': comments})
     
