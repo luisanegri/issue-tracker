@@ -26,13 +26,11 @@
                     </tr>
                 </thead>
             <tbody>
-        
-        
         <tr>
         	<td>
                 <div class="product-wrap">
                 	<div class="product-list">
-                		<h6 class="title">{{ item.issue.title }}</h6>
+                		<h6 class="product-title">{{ item.issue.title }}</h6>
                 		<dl class="param param-inline">
                 		  <dt>Description: </dt>
                 		  <dd>{{ item.issue.description }}</dd>
@@ -50,9 +48,7 @@
                     <div class="input-group">
                         <input name="quantity" type="number" min="0" max="99" class="form-control">
                     </div>
-                    <div class="input-group" >
-                        <button type="submit" class="btn btn-add btn-mobile" style="display: none">Add</button>
-                    </div>
+                        <button type="submit" class="btn btn-add" id="btn-mobile">Add</button>
                 </div>
         	</td>
         	<td> 
@@ -64,7 +60,7 @@
         	
         	<td class="text-right last"> 
         		<button type="submit" class="btn btn-add">Add</button>
-        		<a href="#" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
+        		<a href="#" class="btn btn-success" role="button">Checkout</a>
     	    </td>
         </tr>
         </tbody>
@@ -75,6 +71,8 @@
 <div class="row text-muted" id="total-checkout">
     <p class="total">Total:</p>
     <p class="total-price"><i class="fas fa-euro-sign"></i>{{ total }}</p>
+</div>
+<a href="#" role="button btn-success" id="btn-mob-checkout"></span>Checkout</a>
 </section>
 
 
