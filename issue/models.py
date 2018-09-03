@@ -1,11 +1,12 @@
 from django.db import models
+from django.utils import timezone
 from django.contrib.auth.models import User
 
 # Product
 class Issue(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(max_length=200)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now=True)
     to_do = models.BooleanField(blank=False, default=True)
     done = models.BooleanField(blank=False, default=False)
