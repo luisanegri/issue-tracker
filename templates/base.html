@@ -26,14 +26,14 @@
     {% endif %}
         <ul class="navbar-nav ml-auto">
             {% if user.is_authenticated %}
-                <li class="nav-list"><a class="nav-link" href="#">My Issues</a></li>
-                <li class="nav-list"><a class="nav-link"href="#">Add Issues</a></li>
-                <li class="nav-list"><a class="nav-link"href="#">Charts</a></li>
-                <li class="nav-list"><a class="nav-link"href="{% url 'view_cart' %}">Cart</a></li>
-                <li class="nav-list"><a class="nav-link"href="{% url 'logout' %}">Log Out</a></li>
+                <li class="nav-list"><a class="nav-link" href="{% url 'my_issues' %}">My Issues</a></li>
+                <li class="nav-list"><a class="nav-link" href="{% url 'new_issue' %}">Add Issues</a></li>
+                <li class="nav-list"><a class="nav-link" href="#">Charts</a></li>
+                <li class="nav-list"><a class="nav-link" href="{% url 'view_cart' %}">Cart</a></li>
+                <li class="nav-list"><a class="nav-link" href="{% url 'logout' %}">Log Out</a></li>
             {%  else %}
-                <li class="nav-list"><a class="nav-link"href="{% url 'register' %}">Register</a></li>
-                <li class="nav-list"><a class="nav-link"href="{% url 'login' %}">Log In</a></li>
+                <li class="nav-list"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+                <li class="nav-list"><a class="nav-link" href="{% url 'login' %}">Log In</a></li>
             {% endif %}
         </ul>
       </div>  
