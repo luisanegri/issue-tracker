@@ -54,7 +54,8 @@ class Issue(models.Model):
 # Gives the user the ability to comment on issues
 class Comment(models.Model):
     comment = models.CharField(max_length=200)
-    date_created = models.DateField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     # ForeignKey links to User and Issues models
     user = models.ForeignKey(User, related_name='user_comment')
     issue = models.ForeignKey(Issue, related_name='issue_comment')
