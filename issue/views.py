@@ -3,6 +3,12 @@ from .models import Issue, Comment
 from .forms import IssueForm
 
 # Create your views here.
+def my_issues(request):
+    user = request.user.id
+    issues = Issue.objects.filter(created_by=user)
+    return render(request, "myissues.html", {'issues': issues})
+    
+    
 def all_issues(request):
     # Get all issues in the database
     issues = Issue.objects.all()
