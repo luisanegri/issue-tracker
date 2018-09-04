@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Issue, Comment
+from .forms import IssueForm
 
 # Create your views here.
 def all_issues(request):
@@ -13,4 +14,14 @@ def get_detail(request, pk):
     # Filters comments in the database of specific issue
     comments = Comment.objects.filter(issue=pk)
     return render(request, 'detail.html', {'issue': issue}, {'comments': comments})
+    
+def create_issue(request):
+    if request.method == 'POST':
+        form = IssueForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(all_issues)
+    else:
+        form = IssueForm()
+    return render(request, 'issueform.html', {'form': form})
     
