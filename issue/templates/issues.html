@@ -19,7 +19,7 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Description: {{ issue.description }}</li>
                 <li class="list-group-item">Date created: {{ issue.date_created }}</li>
-                <li class="list-group-item">Created by: {{ issue.user }}</li>
+                <li class="list-group-item">Created by: {{ issue.created_by }}</li>
         </div>
       <a href="{% url 'get_detail' issue.id %}" class="btn w-25" id="btn-read-more">Read more</a>
     </div>

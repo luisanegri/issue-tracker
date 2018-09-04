@@ -1,35 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+
 <div class="row">
-    <div class="col-sm-12">
-<div class="list-group w-50" id="detail-panel">
-  <button type="button" class="list-group-item list-group-item-action active" id="issue-details-bg-custom">
-    Issue Details
-  </button>
-  <button type="button" class="list-group-item list-group-item-action">Issue name: {{ issue.title }}</button>
-  <button type="button" class="list-group-item list-group-item-action">Label: </button>
-  <button type="button" class="list-group-item list-group-item-action">Description: {{ issue.description }}</button>
-  <button type="button" class="list-group-item list-group-item-action">Created by: {{ issue.user }}</button>
-  <button type="button" class="list-group-item list-group-item-action">Date created: {{ issue.date_created }}</button>
-  <button type="button" class="list-group-item list-group-item-action">Status: </button>
-
-  <a href="#" class="list-group-item list-group-item-action active w-50" id="upvote-btn">Upvote</a> 
-  <a href="#" class="list-group-item list-group-item-action active w-50" id="comment-btn">Comment</a>
-
+  <div class="col-sm-12">
+    <div class="list-group w-50" id="detail-panel">
+      <button type="button" class="list-group-item list-group-item-action active" id="issue-details-bg-custom">
+          Issue Details
+      </button>
+      <button type="button" class="list-group-item list-group-item-action">Issue name: {{ issue.name }}</button>
+      <button type="button" class="list-group-item list-group-item-action">Label: {{ issue.varieties }}</button>
+      <button type="button" class="list-group-item list-group-item-action">Description: {{ issue.description }}</button>
+      <button type="button" class="list-group-item list-group-item-action">Created by: {{ issue.created_by }}</button>
+      <button type="button" class="list-group-item list-group-item-action">Creation date: {{ issue.created_at }}</button>
+      <button type="button" class="list-group-item list-group-item-action">Status: {{ issue.status }}</button>
+    </div>
+  </div> 
 </div>
 
-  
+<!-- Add to cart and comment -->
+<div class="row">
+  <form method="POST" action="{% url 'add_to_cart' issue.id %}">
+    {% csrf_token %}
+     {% if issue.varieties == issue.FEATURE %}
+      <div class="input-group" id="upvote">
+        <input name="quantity" type="number" min="1" max="999" class="form-control" style="margin-left: 14px;" placeholder="Nº">
+        <span class="input-group-btn">
+          <button class="btn btn-succcess" type="submit" id="upvote-btn">Upvote</button>
+        </span>
+      </div> 
+      {% endif %}
+  </form>
 </div>
-</div>   
-</div> 
 
-
-<div class="row flex-row">  
-
-<div class="comments-panel">
- 
-</div>
-</div> 
 
 {% endblock %}
