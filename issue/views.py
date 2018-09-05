@@ -31,3 +31,13 @@ def create_issue(request):
         form = IssueForm()
     return render(request, 'issueform.html', {'form': form})
     
+def edit_issue(request, pk):
+    issue = get_object_or_404(Issue, pk=pk)
+    if request.method == 'POST':
+        form = IssueForm(request.POST, instance=issue)
+        if form.is_valid():
+            form.save()
+            return redirect(all_issues)
+    else:
+        form = IssueForm(instance=issue)
+    return render(request, 'issueform.html', {'form': form})
