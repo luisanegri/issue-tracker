@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1 class="page-title">All Issues</h1>
+<h1 class="page-title">My Issues</h1>
 
     {% for issue in issues %}
 <div class="accordion issue-card" id="accordionExample">
@@ -18,10 +18,13 @@
         <div class="card-body">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Description: {{ issue.description }}</li>
-                <li class="list-group-item">Date created: {{ issue.date_created }}</li>
                 <li class="list-group-item">Created by: {{ issue.created_by }}</li>
+                <li class="list-group-item">Created at: {{ issue.created_at }}</li>
         </div>
-      <a href="{% url 'get_detail' issue.id %}" class="btn w-25" id="btn-read-more">Read more</a>
+        <div class="row">
+          <a href="{% url 'get_detail' issue.id %}" class="btn w-25" id="btn-read-more">Read more</a>
+          <form method="GET" action="edit/{{ issue.id }}"><input type="submit" value="Edit" class="btn-edit"></form>
+        </div>
     </div>
     </div>
 </div>
