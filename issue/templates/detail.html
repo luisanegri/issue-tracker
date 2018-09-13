@@ -4,7 +4,7 @@
 
 
 <div class="row">
-  <div class="col-sm-12">
+  <div class="col-md-8">
     <div class="list-group w-50" id="detail-panel">
       <button type="button" class="list-group-item list-group-item-action active" id="issue-details-bg-custom">
           Issue Details
@@ -17,6 +17,25 @@
       <button type="button" class="list-group-item list-group-item-action">Status: {{ issue.status }}</button>
     </div>
   </div> 
+
+  <div class="col-md-4">
+    {% for comment in issue.comments.all %}
+      <div class="comments-panel">
+        <div class="comment-detail">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <p>{{ comment.created_by }}</p>
+       
+           
+              <p>{{ comment.created_at }}</p>
+  
+            <p>{{ comment.comment }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Add to cart and comment -->
@@ -32,7 +51,8 @@
       </div> 
       {% endif %}
   </form>
-</div>
 
+  <a href="{% url 'create_comment' issue.id %}" class="btn w-25" id="btn-read-more">Comment</a>
+</div>
 
 {% endblock %}
