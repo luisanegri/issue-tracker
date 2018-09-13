@@ -3,16 +3,6 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 
-
-TODO = 'To do'
-DOING = 'Doing'
-DONE = 'Done'
-STATUS_CHOICES = (
-    (TODO, 'To do'),
-    (DOING, 'Doing'),
-    (DONE, 'Done'),
-)
-
 # Product
 class Issue(models.Model):
     BUG = 'Bug'
@@ -21,6 +11,15 @@ class Issue(models.Model):
         (BUG, 'Bug'),
         (FEATURE, 'Feature'),
 )
+
+    TODO = 'To do'
+    DOING = 'Doing'
+    DONE = 'Done'
+    STATUS_CHOICES = (
+        (TODO, 'To do'),
+        (DOING, 'Doing'),
+        (DONE, 'Done'),
+    )
 
     name = models.CharField(max_length=200)
     description = models.TextField(max_length=200)
