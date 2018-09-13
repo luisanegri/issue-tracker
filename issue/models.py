@@ -49,8 +49,9 @@ class Comment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     # ForeignKey links to User and Issues models
-    created_by = models.ForeignKey(User, related_name='user_comment')
-    issue = models.ForeignKey(Issue, related_name='issue_comment')
+    created_by = models.ForeignKey(User, related_name='comments', null=False,
+                              default=1, on_delete=models.SET_DEFAULT)
+    issue = models.ForeignKey(Issue, related_name='comments', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.comment
