@@ -25,12 +25,13 @@ def create_issue(request):
     if request.method == 'POST':
         form = IssueForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect(all_issues)
+            issue = form.save(commit=False)
+            issue.created_by = request.user
+            issue.save()
+            return redirect('my_issues')
     else:
         form = IssueForm()
     return render(request, 'issueform.html', {'form': form})
-
    
 def edit_issue(request, pk):
     issue = get_object_or_404(Issue, pk=pk)
