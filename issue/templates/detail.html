@@ -4,8 +4,8 @@
 
 
 <div class="row">
-  <div class="col-md-8">
-    <div class="list-group w-50" id="detail-panel">
+  <div class="col-md-6">
+    <div class="list-group w-75" id="detail-panel">
       <button type="button" class="list-group-item list-group-item-action active" id="issue-details-bg-custom">
           Issue Details
       </button>
@@ -16,43 +16,51 @@
       <button type="button" class="list-group-item list-group-item-action">Creation date: {{ issue.created_at }}</button>
       <button type="button" class="list-group-item list-group-item-action">Status: {{ issue.status }}</button>
     </div>
+    <div class="action">
+    <div class="row">
+      <div class="col-md-4">
+        <form method="POST" action="{% url 'add_to_cart' issue.id %}">
+        {% csrf_token %}
+         {% if issue.varieties == issue.FEATURE %}
+          <div class="input-group" id="upvote">
+            <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Nº">
+            <span class="input-group-btn">
+              <button class="btn btn-succcess" type="submit" id="upvote-btn">Upvote</button>
+            </span>
+          </div> 
+          {% endif %}
+        </form>
+      </div>
+      <div class="col-md-8">
+        <a href="{% url 'create_comment' issue.id %}" class="btn" id="comment-btn">Comment</a>
+      </div>
+    </div>
+    </div>
   </div> 
+  
 
-  <div class="col-md-4">
+  <div class="col-md-6" id="panel-wrapper">
+    <h4 class="comment-title">Comments</h4>
     {% for comment in issue.comments.all %}
       <div class="comments-panel">
         <div class="comment-detail">
           <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <p>{{ comment.created_by }}</p>
-       
-           
-              <p>{{ comment.created_at }}</p>
-  
-            <p>{{ comment.comment }}</p>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="comment-details">
+              <p>User: {{ comment.created_by }}</p>
+              <p>Created at: {{ comment.created_at }}</p>
+              <p>Comment: {{ comment.comment }}</p>
+              <form method="GET" action="{% url 'edit_comment' comment.id %}"><input type="submit" value="Edit" class="btn-edit"></form>
+            </div>
           </div>
         </div>
-        {% endfor %}
+    {% endfor %}
       </div>
-    </div>
-  </div>
-</div>
+   </div>
+ </div>   
 
 <!-- Add to cart and comment -->
-<div class="row">
-  <form method="POST" action="{% url 'add_to_cart' issue.id %}">
-    {% csrf_token %}
-     {% if issue.varieties == issue.FEATURE %}
-      <div class="input-group" id="upvote">
-        <input name="quantity" type="number" min="1" max="999" class="form-control" style="margin-left: 14px;" placeholder="Nº">
-        <span class="input-group-btn">
-          <button class="btn btn-succcess" type="submit" id="upvote-btn">Upvote</button>
-        </span>
-      </div> 
-      {% endif %}
-  </form>
 
-  <a href="{% url 'create_comment' issue.id %}" class="btn w-25" id="btn-read-more">Comment</a>
-</div>
+
+
 
 {% endblock %}
