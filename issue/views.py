@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Issue, Comment
 from .forms import IssueForm, CommentForm
+from django.contrib.auth.decorators import login_required
+
 
 
 def my_issues(request):
@@ -8,7 +10,7 @@ def my_issues(request):
     issues = Issue.objects.filter(created_by=user)
     return render(request, "myissues.html", {'issues': issues})
     
-    
+@login_required   
 def all_issues(request):
     issues = Issue.objects.all()
     return render(request, 'issues.html', {'issues': issues})
@@ -17,7 +19,6 @@ def all_issues(request):
 def get_detail(request, pk):
     issue = get_object_or_404(Issue, pk=pk)
     comments = Comment.objects.all()
-    print(issue.comments)
     return render(request, 'detail.html', {'issue': issue}, {'comments': comments})
  
    
@@ -69,8 +70,10 @@ def edit_comment(request, pk):
             comment.save()
             return redirect('get_detail', comment.id)
     else:
-        form = CommentForm(instance=comment)
+            form = CommentForm(instance=comment)
+
     return render(request, 'commentform.html', {'form': form})
+        
         
 
 
