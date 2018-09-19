@@ -53,6 +53,12 @@ def delete_issue(request, pk):
     issue.delete()
     return redirect(my_issues)
 
+def upvote(request, pk):
+    issue = Issue.objects.get(pk=pk)
+    issue.upvotes += 1
+    issue.save()
+    messages.success(request, 'Upvoted successfully!')
+    return redirect('get_detail', pk)
     
 def create_comment(request, pk):
     comments = Comment.objects.all()

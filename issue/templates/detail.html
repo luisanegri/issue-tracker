@@ -33,6 +33,7 @@
       </div>
       <div class="col-md-8">
         <a href="{% url 'create_comment' issue.id %}" class="btn" id="comment-btn">Comment</a>
+        <a class="btn" href="{% url 'upvote' issue.id %}">Upvote</a>
       </div>
     </div>
     </div>
