@@ -13,7 +13,7 @@ def my_issues(request):
     
 @login_required   
 def all_issues(request):
-    issues = Issue.objects.all()
+    issues = Issue.objects.all().order_by('-upvotes')
     return render(request, 'issues.html', {'issues': issues})
 
 
