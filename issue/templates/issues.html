@@ -11,7 +11,9 @@
         <h5 class="mb-0">
                 <button class="btn btn-link" id="issue-title" type="button" data-toggle="collapse" data-target="#collapseOne{{ forloop.counter }}" aria-expanded="false" aria-controls="collapseOne{{ forloop.counter }}">
                 {{ issue.name}}
+                 
                 </button>
+                <span class="badge badge-primary badge-pill" id="upvote-badge">{{ issue.upvotes }}</span>
             </h5>
         </div>
     <div id="collapseOne{{ forloop.counter }}" class="collapse " aria-labelledby="headingOne{{ forloop.counter }}" data-parent="#accordionExample">
