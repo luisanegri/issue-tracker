@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Issue, Comment
 from .forms import IssueForm, CommentForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 
@@ -29,6 +30,7 @@ def create_issue(request):
             issue = form.save(commit=False)
             issue.created_by = request.user
             issue.save()
+            messages.success(request, 'New issue created successfully!')
             return redirect('my_issues')
     else:
         form = IssueForm()
@@ -40,10 +42,16 @@ def edit_issue(request, pk):
         form = IssueForm(request.POST, instance=issue)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Your issue was updated successfully!')
             return redirect(all_issues)
     else:
         form = IssueForm(instance=issue)
     return render(request, 'issueform.html', {'form': form})
+
+def delete_issue(request, pk):
+    issue = get_object_or_404(Issue, pk=pk)
+    issue.delete()
+    return redirect(my_issues)
 
     
 def create_comment(request, pk):

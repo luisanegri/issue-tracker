@@ -24,6 +24,7 @@
         <div class="row">
           <a href="{% url 'get_detail' issue.id %}" class="btn w-25" id="btn-read-more">Read more</a>
           <form method="GET" action="edit/{{ issue.id }}"><input type="submit" value="Edit" class="btn-edit"></form>
+          <a href="{% url 'delete_issue' issue.id %}" class="btn" id="comment-btn">Delete</a>
         </div>
     </div>
     </div>
