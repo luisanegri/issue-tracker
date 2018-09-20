@@ -5,6 +5,7 @@
 <h1 class="page-title">My Issues</h1>
 
     {% for issue in issues %}
+
 <div class="accordion issue-card" id="accordionExample">
     <div class="card" style="width: 35rem;">    
     <div class="card-header" id="headingOne{{ forloop.counter }}">
@@ -29,6 +30,8 @@
     </div>
     </div>
 </div>
+    {% empty %}
+    <p>You currently have no issues.</p>
     {% endfor %}
        
 
