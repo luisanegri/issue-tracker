@@ -19,6 +19,7 @@ from accounts import urls as urls_accounts
 from issue import urls as urls_issues
 from cart import urls as urls_cart
 from checkout import urls as urls_checkout
+from search import urls as urls_search
 from issue.views import all_issues
 from django.views import static
 
@@ -29,4 +30,5 @@ urlpatterns = [
     url(r'^issues/', include(urls_issues)),
     url(r'^cart/', include(urls_cart)),
     url(r'^checkout/', include(urls_checkout)),
+    url(r'^search/', include(urls_search)),
 ]
