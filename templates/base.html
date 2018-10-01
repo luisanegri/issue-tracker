@@ -1,60 +1,65 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Issue Tracker</title>
-    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    {% block head_js %}
-    {% endblock head_js%}
-</head>
-<body>
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Issue Tracker</title>
+  <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  {% block head_js %} {% endblock head_js%}
+</head>
+
+<body>
 <nav class="navbar navbar-expand-md navbar navbar-dark bg-custom">
-    {% if user.is_authenticated %}
-      <a class="navbar-brand cb-brand" href="{% url 'issues' %}">Issue Tracker</a>
-      
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+  {% if user.is_authenticated %}
+    <a class="navbar-brand cb-brand" href="{% url 'issues' %}">Issue Tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
-      </button>
-      
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    {%  else %}
-    <a class="navbar-brand cb-brand" href="#">Issue Tracker</a>
-    {% endif %}
-        <ul class="navbar-nav ml-auto">
-            {% if user.is_authenticated %}
-                <li class="nav-list"><a class="nav-link" href="{% url 'my_issues' %}">My Issues</a></li>
-                <li class="nav-list"><a class="nav-link" href="{% url 'new_issue' %}">Add Issues</a></li>
-                <li class="nav-list"><a class="nav-link" href="#">Charts</a></li>
-                <li class="nav-list"><a class="nav-link" href="{% url 'view_cart' %}">Cart</a></li>
-                <li class="nav-list"><a class="nav-link" href="{% url 'logout' %}">Log Out</a></li>
-            {%  else %}
-                <li class="nav-list"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
-                <li class="nav-list"><a class="nav-link" href="{% url 'login' %}">Log In</a></li>
-            {% endif %}
-        </ul>
-      </div>  
-    </nav>
-</header>
-    {% if messages %}
-        <div class="alert alert-success">
-            <div class="messages">
-                {% for message in messages %}
-                    {{ message }}
-                {% endfor %}
-            </div>
-        </div>
-    {% endif %}
-    <div class="container">
-        {% block content %} {% endblock %}
-    </div>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+  {% else %}
+    <a class="navbar-brand cb-brand" href="#">Issue Tracker</a> 
+  {% endif %}
+    <ul class="navbar-nav ml-auto">
+      {% if user.is_authenticated %}
+      <form action="{% url 'search' %}" method="GET" class="form-inline">
+        <input class="form-control mr-sm-2" name="q" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <li class="nav-list"><a class="nav-link" href="{% url 'my_issues' %}">My Issues</a></li>
+      <li class="nav-list"><a class="nav-link" href="#">Charts</a></li>
+      <li class="nav-list">
+        <a class="nav-link" href="{% url 'view_cart' %}">Cart
+          {% if issue_count > 0 %}
+          <label class="badge badge-warning">{{ issue_count }}</label>
+          {% endif %}
+        </a>
+      </li>
+      <li class="nav-list"><a class="nav-link" href="{% url 'logout' %}">Log Out</a></li>
+      {% else %}
+      <li class="nav-list"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+      <li class="nav-list"><a class="nav-link" href="{% url 'login' %}">Log In</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
  
+<div class="container">
+    {% if messages %}
+      <div class="alert alert-success">
+        <div class="messages">
+    {% for message in messages %} {{ message }} {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+{% block content %} {% endblock %}
+</div>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
