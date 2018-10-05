@@ -1,51 +1,44 @@
-{% extends 'base.html' %}
-
-{% block content %}
-
+{% extends 'base.html' %} {% block content %}
 <div class="row">
-    <div class="col-lg-12">
-<h1 class="page-title">My Issues</h1>
-<a href="{% url 'new_issue' %}" class="btn btn-primary">Add</a>
+  <div class="col-lg-12">
+    <h1 class="page-title">My Issues</h1>
+    <a href="{% url 'new_issue' %}" class="btn btn-primary">Add</a>
+  </div>
 </div>
-</div>
-    {% for issue in issues %}
-
-<div class="accordion issue-card" id="accordionExample">
-    <div class="card" style="width: 35rem;">    
-    <div class="card-header" id="headingOne{{ forloop.counter }}">
+{% for issue in issues %}
+  <div class="accordion issue-card" id="accordionExample">
+    <div class="card" style="width: 35rem;">
+      <div class="card-header" id="headingOne{{ forloop.counter }}">
         <h5 class="mb-0">
-                <button class="btn btn-link" id="issue-title" type="button" data-toggle="collapse" data-target="#collapseOne{{ forloop.counter }}" aria-expanded="false" aria-controls="collapseOne{{ forloop.counter }}">
-                {{ issue.name}}
-                </button>
-            </h5>
-        </div>
-    <div id="collapseOne{{ forloop.counter }}" class="collapse " aria-labelledby="headingOne{{ forloop.counter }}" data-parent="#accordionExample">
+                  <button class="btn btn-link" id="issue-title" type="button" data-toggle="collapse" data-target="#collapseOne{{ forloop.counter }}" aria-expanded="false" aria-controls="collapseOne{{ forloop.counter }}">
+                  {{ issue.name}}
+                  </button>
+              </h5>
+      </div>
+      <div id="collapseOne{{ forloop.counter }}" class="collapse " aria-labelledby="headingOne{{ forloop.counter }}" data-parent="#accordionExample">
         <div class="card-body">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Description: {{ issue.description }}</li>
-                <li class="list-group-item">Created by: {{ issue.created_by }}</li>
-                <li class="list-group-item">Created at: {{ issue.created_at }}</li>
+          <ul class="list-group list-group-flush">
+            <button type="button" class="list-group-item list-group-item-action">Issue name: {{ issue.name }}</button>
+            <button type="button" class="list-group-item list-group-item-action">Label: {{ issue.varieties }}</button>
+            <button type="button" class="list-group-item list-group-item-action">Status: {{ issue.status }}</button>
+            <button type="button" class="list-group-item list-group-item-action">Description: {{ issue.description }}</button>
+            <button type="button" class="list-group-item list-group-item-action">Created at: {{ issue.created_at }}</button>
+            
+          </ul>
         </div>
-    .
         <div class="row">
-            <div class="btn-group mr-2" role="group" aria-label="First group" style= "margin-left: 41px;">
-          <a href="{% url 'get_detail' issue.id %}" class="btn btn-outline-secondary">Details</a>
-              </div>
-              <div class="btn-group mr-2" role="group" aria-label="Second group">
-          <form method="GET" action="edit/{{ issue.id }}"><input type="submit" value="Edit" class="btn btn-outline-primary"></form>
+          <div class="btn-group mr-2" role="group" aria-label="Second group">
+            <form method="GET" action="edit/{{ issue.id }}"><input type="submit" value="Edit" class="btn btn-outline-primary"></form>
           </div>
           <div class="btn-group" role="group" aria-label="Third group">
-          <a href="{% url 'delete_issue' issue.id %}" class="btn btn-outline-danger">Delete</a>
+            <a href="{% url 'delete_issue' issue.id %}" class="btn btn-outline-danger">Delete</a>
           </div>
         </div>
+      </div>
     </div>
-    </div>
-</div>
-    {% empty %}
+  </div>
+  {% empty %}
     <p>You currently have no issues.</p>
-    {% endfor %}
-       
-
+{% endfor %} 
 {% endblock %}
-
 
