@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-lg-12">
     <h1 class="page-title">My Issues</h1>
-    <a href="{% url 'new_issue' %}" class="btn btn-primary">Add</a>
+    <a href="{% url 'new_issue' %}" class="btn btn-primary" id="btn-add-issue">Add</a>
   </div>
 </div>
 {% for issue in issues %}
