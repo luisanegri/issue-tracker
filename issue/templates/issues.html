@@ -5,7 +5,7 @@
 {% for issue in issues %}
 {% if issue.varieties == issue.BUG %}
     <div class="accordion issue-card" id="accordionExample">
-      <div class="card" style="width: 35rem;">
+      <div class="card w-75" style="width: 35rem;">
         <div class="card-header" id="headingOne{{ forloop.counter }}">
           <h5 class="mb-0">
             <button class="btn btn-link" id="issue-title" type="button" data-toggle="collapse" data-target="#collapseOne{{ forloop.counter }}" aria-expanded="false" aria-controls="collapseOne{{ forloop.counter }}">
@@ -33,7 +33,7 @@
 {% for issue in issues %}
 {% if issue.varieties == issue.FEATURE %} 
     <div class="accordion issue-card" id="accordionExample2">
-      <div class="card" style="width: 35rem;">
+      <div class="card w-75" style="width: 35rem;">
         <div class="card-header" id="headingTwo{{ forloop.counter }}">
           <h5 class="mb-0">
             <button class="btn btn-link" id="issue-title" type="button" data-toggle="collapse" data-target="#collapseTwo{{ forloop.counter }}" aria-expanded="false" aria-controls="collapseTwo{{ forloop.counter }}">
