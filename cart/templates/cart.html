@@ -1,78 +1,77 @@
-{% extends 'base.html' %}
-{% load bootstrap_tags %}
-{% block content %}
+{% extends 'base.html' %} {% load bootstrap4 %} {% block content %}
 
 <section id="cart-page">
-<header class="cart-header">
+  <header class="cart-header">
     <div class="row">
-        <i class="fas fa-shopping-cart cart-icon"></i>
+      <i class="fas fa-shopping-cart cart-icon"></i>
     </div>
     <div class="row">
-        <h2 class="cart-title">Your shopping cart</h2>
+      <h2 class="cart-title">Your shopping cart</h2>
     </div>
-</header>
-<div class="card" id="cart-card">
+  </header>
+  <div class="card" id="cart-card">
     {% for item in cart_items %}
     <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
-        {% csrf_token %}
-        
-            <table class="table table-hover shopping-cart-wrap">
-                <thead class="text-muted">
-                    <tr>
-                      <th scope="col">Product</th>
-                      <th scope="col" width="120">Quantity</th>
-                      <th scope="col" width="120">Price</th>
-                      <th scope="col" width="200" class="text-right last">Action</th>
-                    </tr>
-                </thead>
-            <tbody>
-        <tr>
-        	<td>
-                <div class="product-wrap">
-                	<div class="product-list">
-                		<h6 class="product-title">{{ item.issue.title }}</h6>
-                		<dl class="param param-inline">
-                		  <dt>Description: </dt>
-                		  <dd>{{ item.issue.description }}</dd>
-                		</dl>
-                		<dl class="param param-inline">
-                		  <dt>Posted by: </dt>
-                		  <dd>{{ item.issue.created_by }}</dd>
-                		</dl>
-                	</div>
-                </div> 
-        	</td>
-        	<td> 
-        		<div class="form-group">
-                <label for="exampleInputAmount" class="sr-only">New Qty</label>
-                    <div class="input-group">
-                        <input name="quantity" type="number" min="0" max="99" class="form-control">
-                    </div>
-                        <button type="submit" class="btn btn-add" id="btn-mobile">Add</button>
+      {% csrf_token %}
+      <table class="table table-hover shopping-cart-wrap">
+        <thead class="text-muted">
+          <tr>
+            <th scope="col">Product</th>
+            <th scope="col" width="120">Price</th>
+            <th scope="col" width="120">New Qty</th>
+            <th scope="col" width="200" class="text-right last">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="product-wrap">
+                <div class="product-list">
+                  <h6 class="product-title">Name: {{ item.issue.name }}</h6>
+                  <dl class="param param-inline">
+                    <dt>Description: </dt>
+                    <dd>{{ item.issue.description }}</dd>
+                  </dl>
+                  <dl class="param param-inline">
+                    <dt>Posted by: </dt>
+                    <dd>{{ item.issue.created_by }}</dd>
+                  </dl>
                 </div>
-        	</td>
-        	<td> 
-        		<div class="price-wrap"> 
-        			<var class="price">{{ item.issue.price }}</var> 
-        			<small class="text-muted">(EUR0.02 each)</small> 
-        		</div> <!-- price-wrap .// -->
-        	</td>
-        	
-        	<td class="text-right last"> 
-        		<button type="submit" class="btn btn-add">Add</button>
-        		<a href="{% url 'checkout' %}" class="btn btn-success" role="button">Checkout</a>
-    	    </td>
-        </tr>
+              </div>
+            </td>
+            <td>
+              <div class="price-wrap">
+                <var class="price">{{ item.issue.price }}</var>
+                <small class="text-muted">(EUR 5.00 each)</small>
+              </div>
+              <!-- price-wrap .// -->
+            </td>
+            <td>
+              <div class="form-group">
+                <label for="exampleInputAmount" class="sr-only">New Qty</label>
+                <div class="input-group">
+                  <input name="quantity" type="number" min="0" max="99" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-add" id="btn-mobile">Add</button>
+              </div>
+            </td>
+            <td class="text-right last">
+              <button type="submit" class="btn btn-add">Add</button>
+              <a href="{% url 'checkout' %}" class="btn btn-success" role="button">Checkout</a>
+            </td>
+          </tr>
+          {% endfor %}
         </tbody>
-        </table>
+      </table>
     </form>
-{% endfor %}
-</div> <!-- card.// -->
-<div class="row text-muted" id="total-checkout">
+    
+  </div>
+  <!-- card.// -->
+  <div class="row text-muted" id="total-checkout">
     <p class="total">Total:</p>
     <p class="total-price"><i class="fas fa-euro-sign"></i>{{ total }}</p>
-</div>
-<a href="#" role="button btn-success" id="btn-mob-checkout"></span>Checkout</a>
+  </div>
+  <a href="#" role="button btn-success" id="btn-mob-checkout">Checkout</a>
 </section>
 
 
