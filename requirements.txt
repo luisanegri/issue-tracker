@@ -10,7 +10,6 @@ docutils==0.14
 gunicorn==19.9.0
 html5lib==0.999
 jmespath==0.9.3
-pip==1.5.4
 psycopg2==2.7.5
 pycurl==7.19.3
 python-dateutil==2.7.3
