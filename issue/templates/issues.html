@@ -11,14 +11,34 @@
             <button class="btn btn-link" id="issue-title" type="button" data-toggle="collapse" data-target="#collapseOne{{ forloop.counter }}" aria-expanded="false" aria-controls="collapseOne{{ forloop.counter }}">
                 {{ issue.name}}
             </button>
-            <span class="badge badge-primary badge-pill" id="upvote-badge">{{ issue.upvotes }}</span>
+            <div class="thumbs-upvote">
+              <p class="issue-upvote-amount">{{ issue.upvotes }} </p>
+              <i class="fas fa-thumbs-up" id="upvote"></i>
+            </div>
           </h5>
         </div>
         <div id="collapseOne{{ forloop.counter }}" class="collapse" aria-labelledby="headingOne{{ forloop.counter }}" data-parent="#accordionExample">
           <div class="card-body">
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Description: {{ issue.description }}
-              </li>
+              <li class="list-group-item">Description: {{ issue.description }}</li>
+              {% if issue.status == issue.TODO %}
+                <li class="list-group-item">
+                  Status: 
+                  <span class="badge badge-pill badge-primary">{{ issue.status }}</span>
+                </li> 
+              {% endif %} 
+              {% if issue.status == issue.DOING %}
+                <li class="list-group-item">
+                  Status: 
+                  <span class="badge badge-pill badge-info">{{ issue.status }}</span>
+                </li> 
+              {% endif %} 
+              {% if issue.status == issue.DONE %}
+                <li class="list-group-item">
+                  Status:
+                  <span class="badge badge-pill badge-success">{{ issue.status }}</span>
+                </li>
+              {% endif %}
             </ul>
           </div>
           <a href="{% url 'get_detail' issue.id %}" class="btn btn-outline-secondary" style="margin: 0 22px 17px;">Details</a>
@@ -41,13 +61,34 @@
             <button class="btn btn-link" id="issue-title" type="button" data-toggle="collapse" data-target="#collapseTwo{{ forloop.counter }}" aria-expanded="false" aria-controls="collapseTwo{{ forloop.counter }}">
                 {{ issue.name}}
             </button>
-            <span class="badge badge-primary badge-pill" id="upvote-badge">{{ issue.upvotes }}</span>
+            <div class="thumbs-upvote">
+              <p class="issue-upvote-amount">{{ issue.upvotes }} </p>
+              <i class="fas fa-thumbs-up" id="upvote"></i>
+            </div>
           </h5>
         </div>
         <div id="collapseTwo{{ forloop.counter }}" class="collapse " aria-labelledby="headingTwo{{ forloop.counter }}" data-parent="#accordionExample">
           <div class="card-body">
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Description: {{ issue.description }}
+              <li class="list-group-item">Description: {{ issue.description }}</li>
+              {% if issue.status == issue.TODO %}
+                <li class="list-group-item">
+                  Status: 
+                  <span class="badge badge-pill badge-primary">{{ issue.status }}</span>
+                </li> 
+              {% endif %} 
+              {% if issue.status == issue.DOING %}
+                <li class="list-group-item">
+                  Status: 
+                  <span class="badge badge-pill badge-info">{{ issue.status }}</span>
+                </li> 
+              {% endif %} 
+              {% if issue.status == issue.DONE %}
+                <li class="list-group-item">
+                  Status:
+                  <span class="badge badge-pill badge-success">{{ issue.status }}</span>
+                </li>
+              {% endif %}
               </li>
             </ul>
           </div>
