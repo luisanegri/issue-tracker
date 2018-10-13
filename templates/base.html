@@ -50,7 +50,7 @@
  
 <div class="container">
     {% if messages %}
-      <div class="alert alert-success">
+      <div class="alert alert-success" id="message-alert">
         <div class="messages">
     {% for message in messages %} {{ message }} {% endfor %}
         </div>
