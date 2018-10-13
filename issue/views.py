@@ -42,7 +42,7 @@ def edit_issue(request, pk):
         if form.is_valid():
             form.save()
             messages.success(request, 'Your issue was updated successfully!')
-            return redirect(all_issues)
+            return redirect(my_issues)
     else:
         form = IssueForm(instance=issue)
     return render(request, 'issueform.html', {'form': form})
