@@ -9,6 +9,7 @@ def cart_contents(request):
     cart_items = []
     total = 0
     issue_count = 0
+    quantity = 1
     for id, quantity in cart.items():
         issue = get_object_or_404(Issue, pk=id)
         total += quantity * issue.price
