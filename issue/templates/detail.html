@@ -13,7 +13,7 @@
       <button type="button" class="list-group-item list-group-item-action">
         Upvotes: {{ issue.upvotes }} 
         <a href="{% url 'upvote' issue.id %}">
-          <i class="fas fa-thumbs-up" style="font-size: 1.2rem; color: #161A3F;"></i>
+          <i class="fas fa-thumbs-up" id="upvote"></i>
         </a>
       </button> 
       {% if issue.status == issue.TODO %}
@@ -38,8 +38,8 @@
         {% if issue.status == issue.TODO and issue.DOING %}
         <form method="POST" action="{% url 'add_to_cart' issue.id %}">
           {% csrf_token %} 
-          <div class="input-group" id="upvote">
-              <button class="btn btn-outline-success" type="submit">Add to cart</button>
+          <div class="input-group">
+              <button class="btn btn-outline-success"  id="btn-add-to-cart" type="submit">Add to cart</button>
           </div>
           {% endif %}
       {% endif %}
@@ -47,20 +47,18 @@
     </div>
   </div>
 </div>
-<div id="panel-wrapper">
-  <div class="col-lg-12">
+<div class="card" id="comment-panel">
+  <div class="card-header">
     <h4 class="comment-title">Comments</h4>
     <a href="{% url 'create_comment' issue.id %}" class="btn btn-outline-dark" id="btn-add-comment">Add</a>
   </div>
 {% for comment in issue.comments.all %}
-  <div class="card">
-    <div class="card-body">
-      <p>User: {{ comment.created_by }}</p>
-      <p>Created at: {{ comment.created_at }}</p>
-      <p>Comment: {{ comment.comment }}</p>
-      <form method="GET" action="{% url 'edit_comment' comment.id %}"><input type="submit" value="Edit" class="btn btn-secondary"></form>
-    </div>
+  <div class="card-body" id="card-body-border">
+    <p>User: {{ comment.created_by }}</p>
+    <p>Created at: {{ comment.created_at }}</p>
+    <p>Comment: {{ comment.comment }}</p>
+    <form method="GET" action="{% url 'edit_comment' comment.id %}"><input type="submit" value="Edit" class="btn btn-secondary"></form>
   </div>
-</div>
 {% endfor %}
+</div>
 {% endblock %}
