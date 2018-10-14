@@ -1,5 +1,45 @@
-{% extends 'base.html' %}
-{% block content %}
-<h3>Welcome to my AuthenticateMe web application.</h3>
-<p>I'm learning how to build functionality that will allow users to register, login and logout of web applications.</p>
+{% extends 'base.html' %} {% block content %}
+<div class="jumbotron jumbotron-fluid" id="jumbo-cta">
+  <div class="jumbo-logo-wrapper"><i class="fas fa-cog" id="jumbo-logo"></i></div>
+  <h1 class="text-center jumbo-title">Issue Tracker</h1>
+  <p class="lead text-center font-weight-bold" id="jumbo-text">Join our community today! Share bugs and suggest cool features!</p>
+  <div class="btn-cta">
+    <a class="btn btn-dark btn-lg" href="{% url 'register' %}" role="button">Register</a>
+    <h6 style="margin-top: 15px;">Already registered? Click <a href="{% url 'login' %}">here</a> to log in!</h6>
+  </div>
+</div>
+<div class="container">
+  <div class="b-features">
+    <h1 class="cards-title">What we offer...</h1>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card card-info">
+          <i class="fas fa-lightbulb card-icon"></i>
+          <div class="card-body">
+            <h5 class="card-title">Suggest new features!</h5>
+            <p class="card-text">Features cost only €100 per person and will be implemented when at least 5 users show interest within 15 days. If not, the money will be refunded.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-info">
+          <i class="fas fa-bug card-icon"></i>
+          <div class="card-body ">
+            <h5 class="card-title">Bugs are fixed for free!</h5>
+            <p class="card-text">We'll do our best to fix all the bugs in a descending order. So make sure to upvote for the ones that you may be experiencing too!</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-info">
+          <i class="fas fa-users card-icon"></i>
+          <div class="card-body">
+            <h5 class="card-title">Helpful Community!</h5>
+            <p class="card-text">Our community is active and willing to help! Don't forget to share and grow our community.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
