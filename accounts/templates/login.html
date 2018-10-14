@@ -4,7 +4,7 @@
 <div class="container">
     <form method="post" action="{% url 'login' %}?next={{ next }}" class="accountform">
         <fieldset class="form-group">
-            <legend>Login</legend>
+            <legend class="form-title">Login</legend>
             {% csrf_token %}
             {% bootstrap_form user_form %}
             
