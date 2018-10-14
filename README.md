@@ -11,8 +11,8 @@ Demo:
 
 ## UX
 
-Profile Page: Navigation bar > Profile
-------
+__Profile Page: Navigation bar > Profile__
+
 The Profile page shows the user's username, the issues the user added and its details.
 It also allows users to perform CRUD (Create, Read, Update and Delete) on any issue.
 
