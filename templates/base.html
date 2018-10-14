@@ -14,20 +14,20 @@
 <body>
   <nav class="navbar navbar-expand-md navbar navbar-dark bg-custom">
     {% if user.is_authenticated %}
-    <a class="navbar-brand cb-brand" href="{% url 'issues' %}"><i class="fas fa-cog" style="margin-right: 5px;"></i>Issue Tracker</a>
+    <a class="navbar-brand cb-brand" href="{% url 'issues' %}" id="logo-brand-nav"><i class="fas fa-cog" style="font-size: 2rem; margin-right: 5px;"></i></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       {% else %}
-      <a class="navbar-brand cb-brand" href="{% url 'index' %}"><i class="fas fa-cog" style="font-size: 2rem;"></i></a> {% endif %}
+      <a class="navbar-brand cb-brand" id="logo-brand-nav" href="{% url 'index' %}"><i class="fas fa-cog" style="font-size: 2rem;"></i></a> {% endif %}
       <ul class="navbar-nav ml-auto">
         {% if user.is_authenticated %}
-        <form action="{% url 'search' %}" method="GET" class="form-inline">
+        <form action="{% url 'search' %}" method="GET" class="form-inline" id="form-search">
           <input class="form-control mr-sm-2" name="q" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="nav-form-btn">Search</button>
+          <button class="btn  my-2 my-sm-0" id="btn-outline-custom" type="submit" id="nav-form-btn">Search</button>
         </form>
-        <li class="nav-list"><a class="nav-link" href="{% url 'my_issues' %}"><i class="fas fa-list-ul icon-nav"></i>My Issues</a></li>
+        <li class="nav-list"><a class="nav-link" href="{% url 'my_issues' %}"><i class="fas fa-user icon-nav"></i>Profile</a></li>
         <li class="nav-list">
           <a class="nav-link" href="{% url 'view_cart' %}"><i class="fas fa-shopping-cart icon-nav"></i>Cart
           {% if issue_count > 0 %}
@@ -47,7 +47,9 @@
     </div>
   </div>
   {% endif %} {% block content %} {% endblock %}
-  <footer class="footer p-3">
+  
+
+<!--<footer class="footer p-3">
       <div class="row">
         <div class="m-auto ">
           <p>Created by Luisa Negri</p>
@@ -58,7 +60,7 @@
           <a href="https://github.com/luisanegri"><i class="fab fa-github" id="github-icon"></i></a>
         </div>
       </div>
-  </footer>
+  </footer>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </body>
