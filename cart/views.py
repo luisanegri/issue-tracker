@@ -15,5 +15,5 @@ def add_to_cart(request, id):
     cart[id] = cart.get(id, quantity)
     messages.success(request, 'Feature added to cart!')
     request.session['cart'] = cart
-    return redirect(reverse('index'))
+    return redirect(reverse('issues'))
     
