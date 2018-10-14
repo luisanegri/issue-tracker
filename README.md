@@ -11,8 +11,8 @@ Demo:
 
 ## UX
 
-- Profile Page: Navigation bar > Profile
-
+Profile Page: Navigation bar > Profile
+------
 The Profile page shows the user's username, the issues the user added and its details.
 It also allows users to perform CRUD (Create, Read, Update and Delete) on any issue.
 
@@ -40,8 +40,8 @@ It also allows users to perform CRUD (Create, Read, Update and Delete) on any is
 5. Click on the button 'Checkout'
 6. Review your order and fill out the form
 
-- Issues Page: Navigation bar > Home
-
+Issues Page: Navigation bar > Home
+------
 This page displays all issues added by any user. 
 Issues are split into two columns - Bugs and Features - which are organised by the number of upvotes in a descending order.
 The number of upvotes is shown on the accordion with a thumbs up icon.
@@ -53,8 +53,8 @@ The number of upvotes is shown on the accordion with a thumbs up icon.
 1. Click on the issue
 2. Click on the button 'Details'
 
-- Details Page: Navigation bar > Home > Issue > Detail
-
+Details Page: Navigation bar > Home > Issue > Detail
+------
 Read more details about the issue, such as: name, description, status (to do, doing, done), label (bug or feature), date created and created by.
 
 The status changes colour according to the status. 
