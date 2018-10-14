@@ -1,64 +1,66 @@
 {% extends 'base.html' %} {% block content %}
-<div class="row">
-  <div class="wrapper">
-    <div class="list-group w-75" id="detail-panel">
-      <button type="button" class="list-group-item list-group-item-action active" id="issue-details-bg-custom">
-          Issue Details
-      </button>
-      <button type="button" class="list-group-item list-group-item-action">Issue name: {{ issue.name }}</button>
-      <button type="button" class="list-group-item list-group-item-action">Label: {{ issue.varieties }}</button>
-      <button type="button" class="list-group-item list-group-item-action">Description: {{ issue.description }}</button>
-      <button type="button" class="list-group-item list-group-item-action">Created by: {{ issue.created_by }}</button>
-      <button type="button" class="list-group-item list-group-item-action">Created at: {{ issue.created_at }}</button>
-      <button type="button" class="list-group-item list-group-item-action">
-        Upvotes: {{ issue.upvotes }} 
-        <a href="{% url 'upvote' issue.id %}">
-          <i class="fas fa-thumbs-up" id="upvote"></i>
-        </a>
-      </button> 
-      {% if issue.status == issue.TODO %}
-        <button type="button" class="list-group-item list-group-item-action">
-          Status: 
-          <span class="badge badge-pill badge-primary">{{ issue.status }}</span>
-        </button> 
-      {% endif %} 
-      {% if issue.status == issue.DOING %}
-        <button type="button" class="list-group-item list-group-item-action">
-          Status: 
-          <span class="badge badge-pill badge-info">{{ issue.status }}</span>
-        </button> 
-      {% endif %} 
-      {% if issue.status == issue.DONE %}
-        <button type="button" class="list-group-item list-group-item-action">
-          Status:
-          <span class="badge badge-pill badge-success">{{ issue.status }}</span>
+<div class="container">
+  <div class="row">
+    <div class="wrapper">
+      <div class="list-group w-75" id="detail-panel">
+        <button type="button" class="list-group-item list-group-item-action active" id="issue-details-bg-custom">
+            Issue Details
         </button>
-      {% endif %}
-      {% if issue.varieties == issue.FEATURE %}
-        {% if issue.status == issue.TODO and issue.DOING %}
-        <form method="POST" action="{% url 'add_to_cart' issue.id %}">
-          {% csrf_token %} 
-          <div class="input-group">
-              <button class="btn btn-outline-success"  id="btn-add-to-cart" type="submit">Add to cart</button>
-          </div>
-          {% endif %}
-      {% endif %}
-        </form>
+        <button type="button" class="list-group-item list-group-item-action">Issue name: {{ issue.name }}</button>
+        <button type="button" class="list-group-item list-group-item-action">Label: {{ issue.varieties }}</button>
+        <button type="button" class="list-group-item list-group-item-action">Description: {{ issue.description }}</button>
+        <button type="button" class="list-group-item list-group-item-action">Created by: {{ issue.created_by }}</button>
+        <button type="button" class="list-group-item list-group-item-action">Created at: {{ issue.created_at }}</button>
+        <button type="button" class="list-group-item list-group-item-action">
+          Upvotes: {{ issue.upvotes }} 
+          <a href="{% url 'upvote' issue.id %}">
+            <i class="fas fa-thumbs-up" id="upvote"></i>
+          </a>
+        </button> 
+        {% if issue.status == issue.TODO %}
+          <button type="button" class="list-group-item list-group-item-action">
+            Status: 
+            <span class="badge badge-pill badge-primary">{{ issue.status }}</span>
+          </button> 
+        {% endif %} 
+        {% if issue.status == issue.DOING %}
+          <button type="button" class="list-group-item list-group-item-action">
+            Status: 
+            <span class="badge badge-pill badge-info">{{ issue.status }}</span>
+          </button> 
+        {% endif %} 
+        {% if issue.status == issue.DONE %}
+          <button type="button" class="list-group-item list-group-item-action">
+            Status:
+            <span class="badge badge-pill badge-success">{{ issue.status }}</span>
+          </button>
+        {% endif %}
+        {% if issue.varieties == issue.FEATURE %}
+          {% if issue.status == issue.TODO and issue.DOING %}
+          <form method="POST" action="{% url 'add_to_cart' issue.id %}">
+            {% csrf_token %} 
+            <div class="input-group">
+                <button class="btn btn-outline-success"  id="btn-add-to-cart" type="submit">Add to cart</button>
+            </div>
+            {% endif %}
+        {% endif %}
+          </form>
+      </div>
     </div>
   </div>
-</div>
-<div class="card" id="comment-panel">
-  <div class="card-header">
-    <h4 class="comment-title">Comments</h4>
-    <a href="{% url 'create_comment' issue.id %}" class="btn btn-outline-dark" id="btn-add-comment">Add</a>
+  <div class="card" id="comment-panel">
+    <div class="card-header">
+      <h4 class="comment-title">Comments</h4>
+      <a href="{% url 'create_comment' issue.id %}" class="btn btn-outline-dark" id="btn-add-comment">Add</a>
+    </div>
+  {% for comment in issue.comments.all %}
+    <div class="card-body" id="card-body-border">
+      <p>User: {{ comment.created_by }}</p>
+      <p>Created at: {{ comment.created_at }}</p>
+      <p>Comment: {{ comment.comment }}</p>
+      <form method="GET" action="{% url 'edit_comment' comment.id %}"><input type="submit" value="Edit" class="btn btn-secondary"></form>
+    </div>
+  {% endfor %}
   </div>
-{% for comment in issue.comments.all %}
-  <div class="card-body" id="card-body-border">
-    <p>User: {{ comment.created_by }}</p>
-    <p>Created at: {{ comment.created_at }}</p>
-    <p>Comment: {{ comment.comment }}</p>
-    <form method="GET" action="{% url 'edit_comment' comment.id %}"><input type="submit" value="Edit" class="btn btn-secondary"></form>
-  </div>
-{% endfor %}
 </div>
 {% endblock %}

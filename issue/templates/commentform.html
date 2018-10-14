@@ -2,17 +2,16 @@
 {% load bootstrap4 %}
 {% block content %}
 
-<h2>Comment</h2>
-
-<form method='POST' action="">
-    {% csrf_token %}
-    {% bootstrap_form form %}
-    {% buttons %}
-        <button type="submit" class="btn btn-primary">Submit</button>
-    {% endbuttons %}
-    
-</form>
-
+<div class="container">
+    <h2>Comment</h2>
+    <form method='POST' action="">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        {% endbuttons %}
+    </form>
+</div>
 
 
 {% endblock %}

@@ -1,66 +1,65 @@
 {% extends 'base.html' %} {% load bootstrap4 %} {% block content %}
-
-<div class="row">
-  <div class="col-lg-12">
-<section id="cart-page">
-  <header class="cart-header">
-    <div class="row">
-      <i class="fas fa-shopping-cart cart-icon"></i>
-    </div>
-    <div class="row">
-      <h2 class="cart-title">Your shopping cart</h2>
-    </div>
-  </header>
+<div class="container">
   <div class="row">
-  <div class="card" id="cart-card">
-    <table class="table table-hover shopping-cart-wrap">
-        <thead class="text-muted">
-          <tr>
-            <th scope="col">Product</th>
-            <th scope="col">Price</th>
-          </tr>
-        </thead>
-    {% for item in cart_items %}
-      {% csrf_token %}
-        <tbody>
-          <tr>
-            <td>
-              <div class="product-wrap">
-                <div class="product-list">
-                  <h6 class="product-title">Name: {{ item.issue.name }}</h6>
-                  <dl class="param param-inline">
-                    <dt>Description: </dt>
-                    <dd>{{ item.issue.description }}</dd>
-                  </dl>
-                  <dl class="param param-inline">
-                    <dt>Posted by: </dt>
-                    <dd>{{ item.issue.created_by }}</dd>
-                  </dl>
-                </div>
-              </div>
-            </td>
-            <td>
-              <div class="price-wrap">
-                <var class="price">{{ item.issue.price }}</var>
-              </div>
-            </td>
-          </tr>
-          {% endfor %}
-          <tr>
-          <td>
-              <div class="row text-muted" id="total-checkout">
-                <p class="total">Total:</p>
-                <p class="total-price"><i class="fas fa-euro-sign"></i>{{ total }}</p>
-              </div>
-              <a href="{% url 'checkout' %}" class="btn btn-success" id="btn-checkout" role="button">Checkout</a>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+    <div class="col-lg-12">
+      <section id="cart-page">
+        <header class="cart-header">
+          <div class="row">
+            <i class="fas fa-shopping-cart cart-icon"></i>
+          </div>
+          <div class="row">
+            <h2 class="cart-title">Your shopping cart</h2>
+          </div>
+        </header>
+        <div class="row">
+          <div class="card" id="cart-card">
+            <table class="table table-hover shopping-cart-wrap">
+              <thead class="text-muted">
+                <tr>
+                  <th scope="col">Product</th>
+                  <th scope="col">Price</th>
+                </tr>
+              </thead>
+              {% for item in cart_items %} {% csrf_token %}
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="product-wrap">
+                      <div class="product-list">
+                        <h6 class="product-title">Name: {{ item.issue.name }}</h6>
+                        <dl class="param param-inline">
+                          <dt>Description: </dt>
+                          <dd>{{ item.issue.description }}</dd>
+                        </dl>
+                        <dl class="param param-inline">
+                          <dt>Posted by: </dt>
+                          <dd>{{ item.issue.created_by }}</dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="price-wrap">
+                      <var class="price">{{ item.issue.price }}</var>
+                    </div>
+                  </td>
+                </tr>
+                {% endfor %}
+                <tr>
+                  <td>
+                    <div class="row text-muted" id="total-checkout">
+                      <p class="total">Total:</p>
+                      <p class="total-price"><i class="fas fa-euro-sign"></i>{{ total }}</p>
+                    </div>
+                    <a href="{% url 'checkout' %}" class="btn btn-success" id="btn-checkout" role="button">Checkout</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
   </div>
-  </div>
-</section>
 </div>
-</div>
-
 {% endblock %}
