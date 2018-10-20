@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse
 from .forms import UserLoginForm, UserRegistrationForm
 from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
+from issue.models import Issue
 
 
 # Create your views here.
@@ -15,7 +16,7 @@ def index(request):
 def logout(request):
     """A view that logs the user out and redirects back to the index page"""
     auth.logout(request)
-    messages.success(request, 'You have successfully logged out')
+
     return redirect(reverse('index'))
 
 
