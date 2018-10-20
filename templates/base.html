@@ -21,7 +21,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav ml-auto">
         <form action="{% url 'search' %}" method="GET" class="form-inline" id="form-search">
-          <input class="form-control mr-sm-2" name="q" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control mr-sm-2" name="q" type="search" placeholder="Search" aria-label="Search" id="input-search">
           <button class="btn  my-2 my-sm-0" id="btn-outline-custom" type="submit" id="nav-form-btn">Search</button>
         </form>
         <li class="nav-list"><a class="nav-link" href="{% url 'issues' %}"><i class="fas fa-home icon-nav"></i>Home</a></li>

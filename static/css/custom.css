@@ -48,7 +48,7 @@ footer {
 .nav-list {
   padding-right: 10px;
   color: white;
-  font-size: 1rem;
+  font-size: .9rem;
 }
 
 .nav-link {
@@ -72,6 +72,8 @@ footer {
   background-color: transparent;
   color: white;
   border-color: #DBDFF0;
+  font-size: .9rem;
+  padding: 6px 13px;
 }
 
 #btn-outline-custom:hover {
@@ -81,6 +83,10 @@ footer {
 
 #form-search {
   margin-right: 12px;
+}
+
+.input-search {
+  width: 160px;
 }
 
 /*/ index.html/*/
@@ -157,7 +163,7 @@ footer {
   margin-left: auto;
   margin-right: auto;
   display: block;
-  margin: 20px auto 0 auto;
+
   text-align: center;
 }
 
@@ -375,6 +381,9 @@ var {
   #cart-card {
     width: 280px;
   }
+  #jumbo-cta {
+    padding: 28px 18px;
+  }
 }
 
 @media screen and (min-width: 321px) and (max-width: 576px) {
@@ -395,6 +404,9 @@ var {
   }
   #cart-card {
     width: 300px;
+  }
+  #jumbo-cta {
+    padding: 65px 38px;
   }
 }
 
