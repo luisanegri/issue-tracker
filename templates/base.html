@@ -14,19 +14,17 @@
 <body>
   <nav class="navbar navbar-expand-md navbar navbar-dark bg-custom">
     {% if user.is_authenticated %}
-    <a class="navbar-brand cb-brand" href="{% url 'issues' %}" id="logo-brand-nav"><i class="fas fa-cog" style="font-size: 2rem; margin-right: 5px;"></i></a>
+    <a class="navbar-brand cb-brand" href="{% url 'index' %}" id="logo-brand-nav"><i class="fas fa-cog" style="font-size: 1.7rem; margin-right: 5px;"></i></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      {% else %}
-      <a class="navbar-brand cb-brand" id="logo-brand-nav" href="{% url 'index' %}"><i class="fas fa-cog" style="font-size: 2rem;"></i></a> {% endif %}
       <ul class="navbar-nav ml-auto">
-        {% if user.is_authenticated %}
         <form action="{% url 'search' %}" method="GET" class="form-inline" id="form-search">
           <input class="form-control mr-sm-2" name="q" type="search" placeholder="Search" aria-label="Search">
           <button class="btn  my-2 my-sm-0" id="btn-outline-custom" type="submit" id="nav-form-btn">Search</button>
         </form>
+        <li class="nav-list"><a class="nav-link" href="{% url 'issues' %}"><i class="fas fa-home icon-nav"></i>Home</a></li>
         <li class="nav-list"><a class="nav-link" href="{% url 'my_issues' %}"><i class="fas fa-user icon-nav"></i>Profile</a></li>
         <li class="nav-list">
           <a class="nav-link" href="{% url 'view_cart' %}"><i class="fas fa-shopping-cart icon-nav"></i>Cart
@@ -36,17 +34,25 @@
         </a>
         </li>
         <li class="nav-list"><a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt icon-nav"></i>Log Out</a></li>
-        {% endif %}
+        
       </ul>
     </div>
+          {% else %}
+      <a class="navbar-brand cb-brand" id="logo-brand-nav" href="{% url 'index' %}"><i class="fas fa-cog" style="font-size: 2rem;"></i></a> 
+      {% endif %}
   </nav>
-  {% if messages %}
-  <div class="alert alert-success" id="message-alert">
-    <div class="messages">
-      {% for message in messages %} {{ message }} {% endfor %}
+<div class="container">
+  <div class="row">
+    {% if messages %}
+    <div class="alert alert-success" id="message-alert">
+      <div class="messages">
+        {% for message in messages %} {{ message }} {% endfor %}
+      </div>
     </div>
-  </div>
-  {% endif %} {% block content %} {% endblock %}
+    </div>
+    {% endif %} 
+</div> 
+  {% block content %} {% endblock %}
   
 
 <!--<footer class="footer p-3">
