@@ -6,10 +6,11 @@ Demo:
 
 ## Overview
 
-> A Issue Tracker web application created in Python and Django.
+> A web application created in Python and Django.
 
 
 ## UX
+
 
 __Profile Page: Navigation bar > Profile__
 
@@ -75,12 +76,34 @@ If the issue is labeled as a feature a button 'Add to cart' will be displayed on
 2. Fill out the form
 
 * Edit a comment:
+1. Click on the button 'Edit'
+2. Fill out the form
 
 
 ## Features
 
-## Technologies Used
+* User authentication - Register, Login, Logout
+* User Profile
+* Search bar
+* Full CRUD functionality
+* E-commerce
+
+## Technologies
+
+* HTML
+* CSS
+* Font Awesome
+* Bootstrap
+* Python
+* Django
+* Stripe
+* PostgreSQL
+* Amazon Web Services
+* Heroku
 
 ## Testing
+
+
+
 
 ## Deployment
