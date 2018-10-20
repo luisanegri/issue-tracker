@@ -3,7 +3,7 @@ body, html {
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   background-color: #EBF0F4 !important;
-  height: 100%;
+
 }
 
 footer {
@@ -17,12 +17,12 @@ footer {
 
 #github-icon {
   color: white;
-  font-size: 2rem;
+  font-size: 1rem;
   margin-top: -15px;
 }
 
 .page-title {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin-top: 40px;
   font-weight: 500;
   display: inline-block;
