@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700|K2D');
 body, html {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
+  font-size: .9rem;
   background-color: #EBF0F4 !important;
 
 }
@@ -22,7 +22,7 @@ footer {
 }
 
 .page-title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-top: 40px;
   font-weight: 500;
   display: inline-block;
@@ -65,7 +65,7 @@ footer {
 }
 
 #logo-brand-nav {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 
 #btn-outline-custom {
@@ -176,6 +176,7 @@ footer {
 
 #user-i {
   color: #6F7391;
+  font-size: 1.2rem;
 }
 
 .issue-card {
