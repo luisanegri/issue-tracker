@@ -3,7 +3,6 @@ body, html {
   font-family: 'Montserrat', sans-serif;
   font-size: .9rem;
   background-color: #EBF0F4 !important;
-
 }
 
 footer {
@@ -163,7 +162,6 @@ footer {
   margin-left: auto;
   margin-right: auto;
   display: block;
-
   text-align: center;
 }
 
@@ -297,14 +295,14 @@ footer {
 }
 
 .cart-icon {
-  font-size: 5rem;
+  font-size: 4rem;
   margin: 30px auto 30px auto;
   color: #404361;
 }
 
 .cart-title {
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   margin-right: auto;
   margin-left: auto;
   display: block;
@@ -360,6 +358,58 @@ footer {
 
 var {
   font-style: normal;
+}
+
+/*/ checkout.html /*/
+
+.review-order {
+  background: #DEE1FA;
+  padding: 20px 40px;
+  margin-bottom: 20px;
+  margin-top: 52px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.total-wrapper {
+  display: inherit;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+}
+
+.review-order {
+  padding-top: 34px;
+  text-align: center;
+  margin-bottom: -15px;
+  font-family: 'K2D';
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.total-price {
+  font-size: 1.4rem;
+}
+
+.total-text {
+  margin-right: 10px;
+  font-size: 1.4rem;
+}
+
+.payment-wrapper {
+  background-color: #D1D2DC;
+  box-shadow: 3.2px 3.8px 7px 0 rgba(0, 0, 0, 0.2);
+  margin: 40px 30px 40px 30px;
+}
+
+.payment-details {
+  padding-top: 20px;
+  margin-bottom: 30px;
+  font-family: 'montserrat';
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-left: 15px
 }
 
 #total-checkout {
