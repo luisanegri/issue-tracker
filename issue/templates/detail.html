@@ -58,7 +58,9 @@
       <p>User: {{ comment.created_by }}</p>
       <p>Created at: {{ comment.created_at }}</p>
       <p>Comment: {{ comment.comment }}</p>
+      {% if user == comment.created_by %}
       <form method="GET" action="{% url 'edit_comment' comment.id %}"><input type="submit" value="Edit" class="btn btn-secondary"></form>
+      {% endif %}
     </div>
   {% endfor %}
   </div>
