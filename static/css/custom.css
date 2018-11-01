@@ -7,7 +7,6 @@ body, html {
   height: 100%
 }
 
-
 .page-title {
   font-size: 1.1rem;
   margin-top: 40px;
@@ -24,6 +23,10 @@ body, html {
   margin-bottom: 32px;
   font-weight: bold;
   color: #404361;
+}
+
+.login-container {
+  margin-top: 50px;
 }
 
 /*/ Navigation Bar /*/
