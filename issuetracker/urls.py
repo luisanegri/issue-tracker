@@ -21,11 +21,12 @@ from cart import urls as urls_cart
 from checkout import urls as urls_checkout
 from search import urls as urls_search
 from issue.views import all_issues
+from home.views import index
 from django.views import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', all_issues, name='index'),
+    url(r'^$', index, name='index'),
     url(r'^accounts/', include(urls_accounts)),
     url(r'^issues/', include(urls_issues)),
     url(r'^cart/', include(urls_cart)),
