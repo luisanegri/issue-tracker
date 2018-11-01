@@ -40,17 +40,16 @@
     {% else %}
     <a class="navbar-brand cb-brand" id="logo-brand-nav" href="{% url 'index' %}"><i class="fas fa-cog"></i></a> {% endif %}
   </nav>
-  <div class="container-fluid">
-    <div class="row">
+  
       {% if messages %}
       <div class="alert alert-success" id="message-alert">
         <div class="messages">
           {% for message in messages %} {{ message }} {% endfor %}
         </div>
       </div>
-    </div>
+    
     {% endif %}
-  </div>
+  
 
 {% block content %} {% endblock %}
 
