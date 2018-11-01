@@ -83,7 +83,6 @@ body, html {
 /*/ index.html/*/
 
 #jumbo-cta {
-  padding: 100px;
   background-color: #C7CEE8;
 
 }
@@ -465,7 +464,11 @@ var {
   #total-checkout {
     margin-left: 2px;
   }
-  
+  .mobile-position {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+  }
 }
 
 @media screen and (min-width: 769px) and (max-width: 992px) {
