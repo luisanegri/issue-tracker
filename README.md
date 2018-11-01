@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/luisanegri/issue-tracker.svg?branch=master)](https://travis-ci.org/luisanegri/issue-tracker)
 
 # Issue Tracker Web App
-Demo: 
+Demo: https://issue-tracker-django.herokuapp.com/
 
 ## Overview
 
