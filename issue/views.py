@@ -75,21 +75,19 @@ def create_comment(request, pk):
         form = CommentForm()
     return render(request, 'commentform.html', {'form': form, 'comments': comments})
 
+
+        
 @login_required   
 def edit_comment(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
-    if request.method == 'POST':
+    
+    if request.method == "POST":
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
-            comment = form.save(commit=False)
-            comment.created_by = request.user
-            comment.save()
-            return redirect('get_detail', comment.id)
+            form.save()
+            return redirect('get_detail', pk=comment.issue.pk)
     else:
-            form = CommentForm(instance=comment)
-
-    return render(request, 'commentform.html', {'form': form})
-        
-        
+        form = CommentForm(instance=comment)
+    return render(request, 'commentform.html', {'form': form})       
 
 
