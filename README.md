@@ -6,7 +6,7 @@ Demo: https://issue-tracker-django.herokuapp.com/
 
 ## Overview
 
-> A web application created in Python and Django.
+> A full stack web application created in Python and Django.
 
 
 ## UX
